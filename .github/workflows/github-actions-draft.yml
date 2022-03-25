@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Archive code
-        uses: thedoctor0/zip-release@windows-support
+        uses: thedoctor0/zip-release@master
         with:
           type: 'zip'
           filename: 'aaaa-api-v00.zip'
