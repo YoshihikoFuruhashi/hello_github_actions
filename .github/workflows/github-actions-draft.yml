@@ -11,6 +11,8 @@ jobs:
           type: 'zip'
           filename: 'aaaa-api-v00.zip'
           exclusions: '*.git* /tests/*'
+      - name: Unzip to view zip file
+        run: unzip aaaa-api-v00.zip -d ./res
       - name: Get release asset
         run: gh release download --repo YoshihikoFuruhashi/hello_poetry_build v0.1
         env:
