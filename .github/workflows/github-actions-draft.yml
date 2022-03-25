@@ -1,0 +1,19 @@
+name: GitHub Actions Draft
+on: [push]
+jobs:
+  Package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - name: Archive code
+        uses: thedoctor0/zip-release@windows-support
+        with:
+          type: 'zip'
+          filename: 'aaaa-api-v00.zip'
+          exclusions: 'tests'
+      - name: Get release asset
+        run: gh release download --repo YoshihikoFuruhashi/hello_poetry_build v0.1
+      - name: List files in the repository
+        run: |
+          ls -l ${{ github.workspace }}
+#uses: thedoctor0/zip-release@master
