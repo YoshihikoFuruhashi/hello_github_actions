@@ -10,9 +10,11 @@ jobs:
         with:
           type: 'zip'
           filename: 'aaaa-api-v00.zip'
-          exclusions: 'tests'
+          exclusions: 'tests *.git*'
       - name: Get release asset
         run: gh release download --repo YoshihikoFuruhashi/hello_poetry_build v0.1
+        env:
+          GITHUB_TOKEN: ${{ secrests.GITHUB_TOKEN }}
       - name: List files in the repository
         run: |
           ls -l ${{ github.workspace }}
