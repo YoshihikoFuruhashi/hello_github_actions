@@ -9,12 +9,14 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           type: 'zip'
-          filename: 'aaaa-api-v00.zip'
+          filename: 'api-v00.zip'
           exclusions: '*.git* /tests/*'
       - name: Unzip to view zip file
         run: unzip aaaa-api-v00.zip -d ./res; ls -la ./res
       - name: Get release asset
-        run: gh release download --repo YoshihikoFuruhashi/hello_poetry_build v0.1
+        run: |
+          mkdir ./output
+          gh release download --repo YoshihikoFuruhashi/hello_poetry_build v0.1 -D ./output
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: List files in the repository
@@ -24,5 +26,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: result
-          path: .
+          path: |
+            api-v00.zip
+            ./output
 #uses: thedoctor0/zip-release@master
