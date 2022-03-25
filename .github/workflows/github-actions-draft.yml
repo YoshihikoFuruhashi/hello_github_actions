@@ -18,4 +18,9 @@ jobs:
       - name: List files in the repository
         run: |
           ls -l ${{ github.workspace }}
+      - name: Archive artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: result
+          path: .
 #uses: thedoctor0/zip-release@master
