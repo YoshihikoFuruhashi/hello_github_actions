@@ -13,5 +13,5 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "app"
+          artifacts: "app,README.md"
           token: ${{ secrets.GITHUB_TOKEN }}
