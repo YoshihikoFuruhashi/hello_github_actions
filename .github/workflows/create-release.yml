@@ -11,7 +11,11 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+      - uses: papeloto/action-zip@v1
+        with:
+          files: app/ README.md
+          dest: release.zip
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "app"
+          artifacts: "release.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
