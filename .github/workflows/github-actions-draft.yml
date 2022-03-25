@@ -12,7 +12,7 @@ jobs:
           filename: 'api-v00.zip'
           exclusions: '*.git* /tests/*'
       - name: Unzip to view zip file
-        run: unzip aaaa-api-v00.zip -d ./res; ls -la ./res
+        run: unzip api-v00.zip -d ./res; ls -la ./res
       - name: Get release asset
         run: |
           mkdir ./output
